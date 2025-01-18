@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".", // Ensure the base URL is set for alias resolution
+    "paths": {
+      "@/*": [
+        "src/*"
+      ], // Alias configuration for @ prefix
+      "@/lib/*": [
+        "src/lib/*"
+      ], // Explicit path for @/lib
+      "@/components/*": [
+        "src/app/components/*"
+      ] // Explicit path for @/components
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    ".next/types//*.ts",
+    "/*.ts",
+    "/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
