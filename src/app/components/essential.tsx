@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 export default function Featured() {
@@ -9,7 +10,9 @@ export default function Featured() {
         <p className="text-sm leading-5 w-[60%] pt-3 pb-2 text-center">
             Your built-to-last, all-week wears--but with style only Jordan Brand can deliver.
         </p>
+        <Link href={"/products"}>
         <Button>Shop</Button>
+        </Link>      
       </div>
 
         <h1 className="font-semibold text-xl py-5">The Essentials</h1>

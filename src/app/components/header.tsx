@@ -1,27 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaSearch } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa6";
 import { BiShoppingBag } from "react-icons/bi";
+import React from "react";
 
 export default function header() {
   return (
     <header className="">
       {/* Top bar */}
-      <div className="bg-[#F5F5F5] flex justify-between sticky items-center px-6 py-2 md:text-[11px] sm:text-[9px] text-[8px] font-medium text-gray-500">
-        <Image
-          src="/assests/logo.png"
-          alt={""}
-          width={24}
-          height={24}
-          className="w-[24px] h-[24px]"
-        />
+      <div className="bg-[#F5F5F5] flex justify-center sticky items-center px-6 py-2 md:text-[11px] sm:text-[9px] text-[8px] font-medium text-gray-500">
 
         <div className="flex md:gap-4 sm:gap-3 gap-2">
-          <Link href="#" className="hover:text-gray-800">
-            Find Link Store
-          </Link>
-          <Link href="#" className="hover:text-gray-800">
+          <Link href="/help" className="hover:text-gray-800">
             Help
           </Link>
           <Link href="/signup" className="hover:text-gray-800">
@@ -48,24 +40,18 @@ export default function header() {
         </div>
 
         {/* Center section (Navigation Links) */}
-        <nav className="flex gap-4 md:gap-6 text-gray-700 font-medium md:text-[16px] sm:text-[14px] text-[10px] ">
-          <Link href="/products" className="hover:text-black whitespace-nowrap">
-            New & Featured
+        <nav className="flex items-center gap-4 md:gap-6 text-gray-700 font-medium md:text-[16px] sm:text-[14px] text-[10px] ">
+        <Link href="/" className="hover:text-black whitespace-nowrap text-lg">
+          <FaHome />
           </Link>
-          <Link href="#" className="hover:text-black whitespace-nowrap">
+          <Link href="/products" className="hover:text-black whitespace-nowrap">
+            All Products
+          </Link>
+          <Link href="/shoes" className="hover:text-black whitespace-nowrap">
             Men
           </Link>
           <Link href="#" className="hover:text-black whitespace-nowrap">
             Women
-          </Link>
-          <Link href="#" className="hover:text-black whitespace-nowrap">
-            Kids
-          </Link>
-          <Link href="/products" className="hover:text-black whitespace-nowrap">
-            Sale
-          </Link>
-          <Link href="/products" className="hover:text-black whitespace-nowrap">
-            SNKRS
           </Link>
         </nav>
 
@@ -80,7 +66,9 @@ export default function header() {
             />
             <FaSearch className="absolute right-3 top-2.5 text-gray-500" />
           </div>
+          <Link href={"/wishlist"}>
           <FaRegHeart className="text-gray-700 md:w-[24px] md:h-[24px] sm:w-[20px] sm:h-[20px] w-[16px] h-[16px]  cursor-pointer hover:text-black" />
+          </Link>
           <Link href="/cart">
             <BiShoppingBag className="text-gray-700 md:w-[24px] md:h-[24px] sm:w-[20px] sm:h-[20px] w-[16px] h-[16px] cursor-pointer hover:text-black" />
           </Link>{" "}

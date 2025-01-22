@@ -1,37 +1,44 @@
-'use client';
-import React from 'react';
-import Image from 'next/image';
-import { ProductDetail } from './data/detail';
-import Link from 'next/link';
+"use client"
+import React from "react"
+import Image from "next/image"
+import Link from "next/link"
+
+interface Product {
+  id: number
+  productName: string
+  category: string
+  price: number
+  colors: string[]
+  status: string
+  image: string
+  description: string
+}
 
 interface ProductCardProps {
-  product: ProductDetail;
+  product: Product
 }
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <Link href={"/detail"}>
-    <div
-      key={product.id}
-      className="flex flex-col text-sm sm:text-base leading-relaxed max-w-[150px] sm:max-w-[250px] lg:max-w-[300px]"
-    >
-      <Image
-        src={product.imageUrl}
-        alt={product.name}
-        width={300}
-        height={300}
-        className="w-full h-auto object-cover"
-      />
-      <div className="flex flex-wrap gap-4 sm:gap-10 items-start justify-between mt-3 bg-white">
-        <div className="flex flex-col text-xs sm:text-sm pr-1">
-          <div className="font-medium text-neutral-900">{product.name}</div>
-          <div className="text-neutral-500">{product.description}</div>
+    <Link href={`/products/${encodeURIComponent(product.id)}`}>
+      <div className="flex flex-col text-sm sm:text-base leading-relaxed w-full">
+        <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200">
+          <Image
+            src={product.image || "/placeholder.svg"}
+            alt={product.productName}
+            width={300}
+            height={300}
+            className="h-full w-full object-cover object-center"
+          />
         </div>
-        <div className=" font-medium text-right text-neutral-900">
-          {product.price}
+        <div className="mt-4 flex flex-col">
+          <h3 className="text-sm font-medium text-gray-900">{product.productName}</h3>
+          <p className="mt-1 text-sm font-medium text-gray-900">${product.price.toFixed(2)}</p>
         </div>
       </div>
-    </div>
     </Link>
-  );
+  )
 }
+
+
+

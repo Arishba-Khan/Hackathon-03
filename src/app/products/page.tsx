@@ -1,11 +1,11 @@
-import React from 'react';
-import { allProducts } from '../../sanity/lib/queries';
-import { ProductCardSidebar } from '../components/ProductCardSidebar';
-import { client } from '../../sanity/lib/client';
-import { Product } from '../../types/product';
+import React from "react"
+import { allProducts } from "../../sanity/lib/queries"
+import { ProductCardSidebar } from "../components/ProductCardSidebar"
+import { client } from "../../sanity/lib/client"
+import type { Product } from "../../types/product"
 
 export default async function ProductPage() {
-  const products: Product[] = await client.fetch(allProducts);
+  const products: Product[] = await client.fetch(allProducts)
 
   return (
     <div className="flex flex-col md:flex-row">
@@ -110,14 +110,13 @@ export default async function ProductPage() {
           </div>
         </div>
       </aside>
-
       {/* Products Section */}
       <main className="w-full md:w-3/4 p-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-6">
         {products.map((product: Product) => (
-          <ProductCardSidebar key={product._id} product={product} />
+          <ProductCardSidebar key={product.id} product={product} />
         ))}
       </main>
     </div>
-  );
+  )
 }
 

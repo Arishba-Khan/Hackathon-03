@@ -30,8 +30,8 @@ export const productSchema = {
       of: [{ type: 'string' }],
     },
     {
-      name: 'status',
-      title: 'Status',
+      name: 'stockStatus',
+      title: 'Stock Status',
       type: 'string',
     },
     {

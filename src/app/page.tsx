@@ -1,10 +1,10 @@
 import BEST from "./components/BESTAIR";
 import Featured from "./components/FEATURED";
 import Hero from "./components/hero";
-import { GearUpShop } from '@/components/GearUpShop'
+import { GearUpShop } from './components/GearUpShop'
 import Last from "./components/last";
 import Essential from "./components/essential";
-import Miss from "./components/miss";
+import React from "react";
 
 
 
@@ -16,7 +16,6 @@ export default function Home() {
       <BEST/>
       <Featured/>
       <GearUpShop />
-      <Miss/>
       <Essential/>
       <Last/>
     </div>

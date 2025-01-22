@@ -19,6 +19,7 @@
     "incremental": true,
     "baseUrl": ".", // Ensure the base URL is set for alias resolution
     "paths": {
+      ".next/types/*": ["./src/types/*"], // Alias configuration for Next.js types
       "@/*": [
         "src/*"
       ], // Alias configuration for @ prefix
@@ -29,6 +30,10 @@
         "src/app/components/*"
       ] // Explicit path for @/components
     },
+    "typeRoots": [
+      "./types", // Include the custom types directory
+      "./node_modules/@types"
+    ],
     "plugins": [
       {
         "name": "next"
@@ -36,11 +41,11 @@
     ]
   },
   "include": [
-    ".next/types//*.ts",
-    "/*.ts",
-    "/*.tsx",
     "next-env.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "types/**/*.d.ts" // Ensure custom type declarations are included
   ],
   "exclude": [
     "node_modules"
