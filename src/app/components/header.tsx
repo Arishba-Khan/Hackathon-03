@@ -1,27 +1,52 @@
-import Image from "next/image";
-import Link from "next/link";
-import { FaSearch } from "react-icons/fa";
-import { FaHome } from "react-icons/fa";
-import { FaRegHeart } from "react-icons/fa6";
-import { BiShoppingBag } from "react-icons/bi";
-import React from "react";
+"use client"
+import Image from "next/image"
+import Link from "next/link"
+import { FaSearch } from "react-icons/fa"
+import { FaHome } from "react-icons/fa"
+import { FaRegHeart } from "react-icons/fa6"
+import { BiShoppingBag } from "react-icons/bi"
 
-export default function header() {
+import dynamic from "next/dynamic"
+
+// Dynamically import Clerk components (disable SSR)
+const SignInButton = dynamic(() => import("@clerk/nextjs").then((mod) => mod.SignInButton), { ssr: false })
+const SignedIn = dynamic(() => import("@clerk/nextjs").then((mod) => mod.SignedIn), { ssr: false })
+const SignedOut = dynamic(() => import("@clerk/nextjs").then((mod) => mod.SignedOut), { ssr: false })
+const UserButton = dynamic(() => import("@clerk/nextjs").then((mod) => mod.UserButton), { ssr: false })
+
+export default function Header() {
   return (
-    <header className="">
+    <header className="sticky top-0 z-50 bg-white shadow-md animate-fade-in">
       {/* Top bar */}
-      <div className="bg-[#F5F5F5] flex justify-center sticky items-center px-6 py-2 md:text-[11px] sm:text-[9px] text-[8px] font-medium text-gray-500">
-
-        <div className="flex md:gap-4 sm:gap-3 gap-2">
-          <Link href="/help" className="hover:text-gray-800">
+      <div className="bg-[#F5F5F5] flex justify-between items-center px-6 py-3 text-xs sm:text-sm font-medium text-gray-600">
+        <div className="flex gap-4">
+          <Link href="/help" className="hover:text-gray-800 transition-colors">
             Help
           </Link>
-          <Link href="/signup" className="hover:text-gray-800">
-            Join Us
+          <Link href="/about" className="hover:text-gray-800 transition-colors">
+            About Us
           </Link>
-          <Link href="/join" className="hover:text-gray-800">
-            Sign In
+          <Link href="/contact" className="hover:text-gray-800 transition-colors">
+            Contact
           </Link>
+        </div>
+        <div className="flex items-center gap-4">
+          <SignedOut>
+            <SignInButton>
+              <button className="px-4 py-2 bg-black text-white font-semibold rounded-full shadow-md hover:bg-gray-800 transition-colors text-xs sm:text-sm">
+                Login
+              </button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton
+              appearance={{
+                elements: {
+                  avatarBox: "w-8 h-8 sm:w-10 sm:h-10",
+                },
+              }}
+            />
+          </SignedIn>
         </div>
       </div>
 
@@ -29,28 +54,21 @@ export default function header() {
       <div className="flex flex-wrap justify-between items-center px-6 py-4">
         {/* Left section (Logo) */}
         <div className="flex items-center">
-          <Image
-            src="/assests/nike.png"
-            alt="Nike Logo"
-            className="md:w-[78px] sm:w-[60px] w-[30px]
-          "
-            width={30}
-            height={30}
-          />
+          <Image src="/assests/nike.png" alt="Nike Logo" className="w-12 sm:w-16 md:w-20" width={80} height={80} />
         </div>
 
         {/* Center section (Navigation Links) */}
-        <nav className="flex items-center gap-4 md:gap-6 text-gray-700 font-medium md:text-[16px] sm:text-[14px] text-[10px] ">
-        <Link href="/" className="hover:text-black whitespace-nowrap text-lg">
-          <FaHome />
+        <nav className="flex items-center gap-4 md:gap-6 text-gray-700 font-medium text-sm sm:text-base">
+          <Link href="/" className="hover:text-black transition-colors">
+            <FaHome className="text-xl" />
           </Link>
-          <Link href="/products" className="hover:text-black whitespace-nowrap">
+          <Link href="/products" className="hover:text-black transition-colors whitespace-nowrap">
             All Products
           </Link>
-          <Link href="/shoes" className="hover:text-black whitespace-nowrap">
+          <Link href="/shoes" className="hover:text-black transition-colors whitespace-nowrap">
             Men
           </Link>
-          <Link href="#" className="hover:text-black whitespace-nowrap">
+          <Link href="#" className="hover:text-black transition-colors whitespace-nowrap">
             Women
           </Link>
         </nav>
@@ -62,30 +80,31 @@ export default function header() {
             <input
               type="text"
               placeholder="Search"
-              className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none"
+              className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black transition-all"
             />
             <FaSearch className="absolute right-3 top-2.5 text-gray-500" />
           </div>
           <Link href={"/wishlist"}>
-          <FaRegHeart className="text-gray-700 md:w-[24px] md:h-[24px] sm:w-[20px] sm:h-[20px] w-[16px] h-[16px]  cursor-pointer hover:text-black" />
+            <FaRegHeart className="text-gray-700 w-6 h-6 cursor-pointer hover:text-black transition-colors" />
           </Link>
           <Link href="/cart">
-            <BiShoppingBag className="text-gray-700 md:w-[24px] md:h-[24px] sm:w-[20px] sm:h-[20px] w-[16px] h-[16px] cursor-pointer hover:text-black" />
-          </Link>{" "}
+            <BiShoppingBag className="text-gray-700 w-6 h-6 cursor-pointer hover:text-black transition-colors" />
+          </Link>
         </div>
       </div>
 
       {/* Mobile Search Bar */}
-      <div className="block md:hidden px-6 mt-2">
+      <div className="block md:hidden px-6 pb-4">
         <div className="relative">
           <input
             type="text"
             placeholder="Search"
-            className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none w-full"
+            className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black transition-all w-full"
           />
           <FaSearch className="absolute right-3 top-2.5 text-gray-500" />
         </div>
       </div>
     </header>
-  );
+  )
 }
+

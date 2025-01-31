@@ -7,9 +7,8 @@ import Essential from "./components/essential";
 import React from "react";
 
 
-
-
 export default function Home() {
+    
   return (
     <div>
       <Hero/>

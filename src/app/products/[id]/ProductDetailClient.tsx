@@ -15,7 +15,7 @@ type ProductDetailPage = {
   description: string
   price: number
   image: string
-  colors?: string[]
+colors?: string[]
   color?: string
   size: string
   inventory: number
@@ -258,4 +258,3 @@ export default function ProductDetailClient({ product }: { product: ProductDetai
     </div>
   )
 }
-
