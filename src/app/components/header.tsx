@@ -51,47 +51,47 @@ export default function Header() {
       </div>
 
       {/* Main navigation */}
-      <div className="flex flex-wrap justify-between items-center px-6 py-4">
-        {/* Left section (Logo) */}
-        <div className="flex items-center">
-          <Image src="/assests/nike.png" alt="Nike Logo" className="w-12 sm:w-16 md:w-20" width={80} height={80} />
-        </div>
-
-        {/* Center section (Navigation Links) */}
-        <nav className="flex items-center gap-4 md:gap-6 text-gray-700 font-medium text-sm sm:text-base">
-          <Link href="/" className="hover:text-black transition-colors">
-            <FaHome className="text-xl" />
-          </Link>
-          <Link href="/products" className="hover:text-black transition-colors whitespace-nowrap">
-            All Products
-          </Link>
-          <Link href="/shoes" className="hover:text-black transition-colors whitespace-nowrap">
-            Men
-          </Link>
-          <Link href="#" className="hover:text-black transition-colors whitespace-nowrap">
-            Women
-          </Link>
-        </nav>
-
-        {/* Right section (Search, Wishlist, Cart) */}
-        <div className="flex items-center gap-4 mt-4 md:mt-0">
-          {/* Search Bar */}
-          <div className="relative hidden md:block">
-            <input
-              type="text"
-              placeholder="Search"
-              className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black transition-all"
-            />
-            <FaSearch className="absolute right-3 top-2.5 text-gray-500" />
-          </div>
-          <Link href={"/wishlist"}>
-            <FaRegHeart className="text-gray-700 w-6 h-6 cursor-pointer hover:text-black transition-colors" />
-          </Link>
-          <Link href="/cart">
-            <BiShoppingBag className="text-gray-700 w-6 h-6 cursor-pointer hover:text-black transition-colors" />
-          </Link>
-        </div>
+      <div className="flex flex-wrap justify-between items-center px-4 sm:px-6 py-4">
+      {/* Left section (Logo) */}
+      <div className="flex items-center">
+        <p className="text-black font-extrabold text-lg sm:text-xl md:text-2xl lg:text-3xl">SoleCare</p>
       </div>
+
+      {/* Center section (Navigation Links) */}
+      <nav className="order-3 md:order-2 w-full md:w-auto mt-4 md:mt-0 flex justify-center items-center gap-4 md:gap-6 text-gray-700 font-medium text-sm sm:text-base">
+        <Link href="/" className="hover:text-black transition-colors">
+          <FaHome className="text-xl" />
+        </Link>
+        <Link href="/products" className="hover:text-black transition-colors whitespace-nowrap">
+          All Products
+        </Link>
+        <Link href="/products" className="hover:text-black transition-colors whitespace-nowrap">
+          Men
+        </Link>
+        <Link href="/products" className="hover:text-black transition-colors whitespace-nowrap">
+          Women
+        </Link>
+      </nav>
+
+      {/* Right section (Search, Wishlist, Cart) */}
+      <div className="order-2 md:order-3 flex items-center gap-4">
+        {/* Search Bar */}
+        <div className="relative hidden md:block">
+          <input
+            type="text"
+            placeholder="Search"
+            className="border border-gray-300 rounded-full pl-4 pr-10 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-black transition-all"
+          />
+          <FaSearch className="absolute right-3 top-2.5 text-gray-500" />
+        </div>
+        <Link href={"/wishlist"}>
+          <FaRegHeart className="text-gray-700 w-6 h-6 cursor-pointer hover:text-black transition-colors" />
+        </Link>
+        <Link href="/cart">
+          <BiShoppingBag className="text-gray-700 w-6 h-6 cursor-pointer hover:text-black transition-colors" />
+        </Link>
+      </div>
+    </div>
 
       {/* Mobile Search Bar */}
       <div className="block md:hidden px-6 pb-4">

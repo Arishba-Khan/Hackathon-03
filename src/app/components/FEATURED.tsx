@@ -11,7 +11,7 @@ export default function Featured() {
           Cause everyone should know the feeling of running in that perfect
           pair.
         </p>
-        <Link href={"/shoes"}>
+        <Link href={"/products"}>
         <Button>Find Your Shoe</Button>
         </Link>
       </div>

@@ -58,7 +58,7 @@ export default function footer() {
     <div className="flex mb-4 md:mb-0 gap-2">
       <IoLocationOutline className="text-gray-400" />
       <p>India</p>
-      <p>© 2023 Nike, Inc. All Rights Reserved</p>
+      <p>© 2025 SoleCare, Inc. All Rights Reserved</p>
     </div>
 
     {/* Links */}

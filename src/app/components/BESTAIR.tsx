@@ -31,47 +31,23 @@ export default function AirProducts() {
   return (
     <div className="bg-gradient-to-b from-gray-50 to-white">
       <section className="p-5 sm:p-10">
-        <div className="flex justify-center items-center flex-col p-10">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-sm font-medium text-gray-600 tracking-wide"
+      <div className="flex justify-center items-center flex-col p-10">
+        <p className="text-sm font-medium">First Look</p>
+        <h2 className="text-4xl sm:text-5xl font-bold uppercase text-center mt-2">Nike Air Max Pulse</h2>
+        <p className="text-sm sm:text-base leading-relaxed w-full sm:w-[80%] md:w-[60%] pt-6 pb-4 text-center">
+          Extreme comfort. Hyper durable. Max volume. Introducing the Air Max Pulse —designed to push you past your
+          limits and help you go to the max.
+        </p>
+        <div className="mt-6">
+          <Button
+            onClick={handleLoadMore}
+            className="bg-black text-white font-semibold py-2 px-6 rounded-full hover:bg-gray-800 transition duration-300 ease-in-out"
           >
-            First Look
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl sm:text-5xl font-bold uppercase text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mt-2"
-          >
-            Nike Air Max Pulse
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm sm:text-base leading-relaxed w-full sm:w-[80%] md:w-[60%] pt-6 pb-4 text-center text-gray-700"
-          >
-            Extreme comfort. Hyper durable. Max volume. Introducing the Air Max Pulse —designed to push you past your
-            limits and help you go to the max.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-6"
-          >
-            <Button
-              onClick={handleLoadMore}
-              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-2 px-6 rounded-full hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1"
-            >
-              Shop Air Max
-            </Button>
-          </motion.div>
+            Shop Air Max
+          </Button>
         </div>
-      </section>
+      </div>
+    </section>
       <section className="flex flex-wrap justify-between items-center py-6 px-8 sm:px-12">
         <h2 className="font-bold text-2xl sm:text-3xl text-gray-800">Best of Air Max</h2>
       </section>
